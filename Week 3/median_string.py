@@ -1,7 +1,7 @@
 def hamdist(str1, str2):
 	return len(list(filter(lambda x : x[0] != x[1], zip(str1, str2))))
 
-def d(pattern, text):
+def d_on_the_text(pattern, text):
 	minim_dist = float('Inf')
 	for i in range(len(text) - len(pattern) + 1):
 		pattern_prim = text[i : i+len(pattern)]
@@ -11,3 +11,8 @@ def d(pattern, text):
 			minim_dist = dist
 
 	return minim_dist
+
+def d(pattern, dna):
+	return sum(map(d_on_the_text, dna))
+
+
