@@ -35,3 +35,10 @@ def approx_pattern_matching(pattern, genome, d):
 			matches.append(i)
 
 	return matches
+
+
+k, d = list(map(int, input().split()))
+dna = []
+
+for line in sys.stdin:
+    dna.append(line.strip())
