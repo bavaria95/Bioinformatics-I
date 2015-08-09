@@ -43,7 +43,6 @@ def motif_enum(dna, k, d):
 
 	for i in range(len(''.join(dna)) - k + 1):
 		pattern = ''.join(dna)[i : i+k]	
-		# print(pattern)
 		neighbors_of_pattern = neighbors(pattern, d)
 		for pattern_prim in neighbors_of_pattern:
 			if all([approx_pattern_matching(pattern_prim, genome, d) for genome in dna]):
