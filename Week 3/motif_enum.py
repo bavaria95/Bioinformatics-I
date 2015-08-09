@@ -37,8 +37,25 @@ def approx_pattern_matching(pattern, genome, d):
 	return matches
 
 
+def motif_enum(dna, k, d):
+	patterns = set()
+
+	for i in range(len(''.join(dna)) - k + 1):
+		pattern = ''.join(dna)[i : i+k]	
+		neighbors_of_pattern = neighbors(pattern, d)
+		for pattern_prim in neighbors_of_pattern:
+			if all([approx_pattern_matching(pattern_prim, genome, d) for genome in dna]):
+				patterns.add(pattern_prim)
+
+	return patterns
+
+
 k, d = list(map(int, input().split()))
 dna = []
 
 for line in sys.stdin:
     dna.append(line.strip())
+
+for motif in motif_enum(dna, k, d):
+	print(motif, end=' ')
+print()
