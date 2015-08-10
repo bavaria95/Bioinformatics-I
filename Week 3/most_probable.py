@@ -1,3 +1,11 @@
+def probability(pattern, p):
+	prob = 1
+	for i in range(len(pattern)):
+		prob *= p[pattern[i]][i]
+
+	return prob
+
+
 text = input()
 k = int(input())
 
