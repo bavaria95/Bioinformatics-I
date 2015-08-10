@@ -18,6 +18,7 @@ def most_probable(text, k, p):
 
 	return most_probable_kmer
 
+
 text = input()
 k = int(input())
 
