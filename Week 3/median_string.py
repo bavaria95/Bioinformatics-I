@@ -1,3 +1,4 @@
+import sys
 from itertools import product
 
 def median_string(dna, k):
@@ -28,3 +29,12 @@ def d_on_the_text(pattern, text):
 
 def d(pattern, dna):
 	return sum([d_on_the_text(pattern, text) for text in dna])
+
+
+k = int(input())
+dna = []
+
+for line in sys.stdin:
+    dna.append(line.strip())
+
+print(median_string(dna, k))
