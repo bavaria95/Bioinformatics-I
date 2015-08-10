@@ -1,3 +1,17 @@
+from itertools import product
+
+def median_string(dna, k):
+	distance = float('Inf')
+	all_kmers = [''.join(kmer) for kmer in product('ACGT', repeat=k)]
+	median = ''
+
+	for pattern in all_kmers:
+		if distance > d(pattern, dna):
+			distance = d(pattern, dna)
+			median = pattern
+
+	return median
+
 def hamdist(str1, str2):
 	return len(list(filter(lambda x : x[0] != x[1], zip(str1, str2))))
 
@@ -13,6 +27,4 @@ def d_on_the_text(pattern, text):
 	return minim_dist
 
 def d(pattern, dna):
-	return sum(map(d_on_the_text, dna))
-
-
+	return sum([d_on_the_text(pattern, text) for text in dna])
